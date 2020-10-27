@@ -1,4 +1,7 @@
-export default (opt = { token: 'token' }) => {
+export default (opt) => {
+  // Default set
+  opt.token = opt.token || 'token';
+
   const state = {
     $userInfo: {},
     $token: '',
