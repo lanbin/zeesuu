@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/login",
-  "version": "1.0.0",
+  "version": "1.0.2-alpha.0",
   "description": "",
   "main": "index.js",
   "scripts": {},
@@ -20,9 +20,9 @@
   "devDependencies": {
     "@babel/core": "7.11.4",
     "@babel/register": "7.10.5",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "eslint": "7.7.0",
-    "prettier": "^2.0.5",
     "eslint-plugin-vue": "^6.2.2",
-    "@vue/eslint-config-prettier": "^6.0.0"
+    "prettier": "^2.0.5"
   }
 }
