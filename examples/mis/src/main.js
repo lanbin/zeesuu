@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import axios from 'axios';
+import Vuex from 'vuex';
 
 const API = [
   '/user/info',
@@ -11,6 +12,9 @@ const API = [
   'http://web.abc.com/post/get',
 ];
 
+/**
+ * Import Service
+ */
 import ZeesuuService from '@zeesuu/service';
 Vue.use(ZeesuuService, {
   $http: axios,
@@ -21,6 +25,24 @@ Vue.use(ZeesuuService, {
   debug: process.env.NODE_ENV === 'development',
 });
 
+/**
+ * Import login
+ */
+import ZeesuuLogin from '@zeesuu/login';
+Vue.use(Vuex);
+const store = new Vuex.Store({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {},
+});
+
+Vue.use(ZeesuuLogin, {
+  store,
+  token: 'ZeesuuLoginExampleToken',
+});
+
 new Vue({
+  store,
   render: (h) => h(App),
 }).$mount('#app');

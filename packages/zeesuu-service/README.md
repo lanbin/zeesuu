@@ -10,10 +10,10 @@
 
 ```javascript
 // main.js
-import ZeesusService from ' @zeesuu/service';
+import ZeesuuService from ' @zeesuu/service';
 
 // 配置
-Vue.use(ZeesusService, {
+Vue.use(ZeesuuService, {
   $http: axios, //自己封装好的请求对象
 
   apis: [

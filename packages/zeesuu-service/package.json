@@ -1,7 +1,7 @@
 {
   "name": "@zeesuu/service",
   "version": "1.0.1-alpha.0",
-  "description": "API to service",
+  "description": "compile API settings to service function",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -23,5 +23,5 @@
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.0.5"
   },
-  "gitHead": "1ca9982a64938d471dfa4bdc1b7ab0b248841fb4"
+  "gitHead": "ec67d1fcde06108a31bbbbcf8bf68a38da31f8ca"
 }

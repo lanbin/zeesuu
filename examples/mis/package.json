@@ -9,6 +9,7 @@
   "author": "lanbin1987@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "@zeesuu/login": "1.0.0",
     "@zeesuu/service": "^1.0.1-alpha.0",
     "axios": "^0.21.0",
     "element-ui": "^2.13.2",
@@ -30,5 +31,5 @@
     "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
   },
-  "gitHead": "1ca9982a64938d471dfa4bdc1b7ab0b248841fb4"
+  "gitHead": "ec67d1fcde06108a31bbbbcf8bf68a38da31f8ca"
 }
