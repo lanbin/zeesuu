@@ -1,4 +1,4 @@
-# Mutong-Ketang-Service
+# @zeesuu/service
 
 将特定格式的 API 配置,转成能够直接使用的 Service.
 
@@ -10,10 +10,10 @@
 
 ```javascript
 // main.js
-import MutongKetangService from 'mutong-ketang-service';
+import ZeesusService from ' @zeesuu/service';
 
 // 配置
-Vue.use(MutongKetangService, {
+Vue.use(ZeesusService, {
   $http: axios, //自己封装好的请求对象
 
   apis: [
