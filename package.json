@@ -1,0 +1,20 @@
+{
+  "name": "zeesuu",
+  "version": "1.0.0",
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "example": "cd examples/mis && npm run serve"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "engines": {
+    "node": ">= 6.9.0",
+    "yarn": ">=1.4.0"
+  }
+}
