@@ -30,6 +30,5 @@
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^1.19.1",
     "vue-template-compiler": "^2.6.11"
-  },
-  "gitHead": "ec67d1fcde06108a31bbbbcf8bf68a38da31f8ca"
+  }
 }

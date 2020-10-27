@@ -22,6 +22,5 @@
     "eslint": "7.7.0",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.0.5"
-  },
-  "gitHead": "ec67d1fcde06108a31bbbbcf8bf68a38da31f8ca"
+  }
 }
