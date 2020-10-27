@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/service",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "API to service",
   "main": "index.js",
   "repository": {
