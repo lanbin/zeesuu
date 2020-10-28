@@ -2,7 +2,7 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2020-10-27 12:01:29
+ * @Last Modified time: 2020-10-28 10:58:49
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
@@ -23,7 +23,7 @@ const ParamReg = /\((.+?)\)/g;
 
 export default {
   install(Vue, options) {
-    const { $http, apis, appRoot = '', isMini = 'false' } = options;
+    const { $http, apis, appRoot = '', isMini = false } = options;
     if (!$http) {
       return console.error(`${PACKNAME} 缺少$http字段配置, 请指定负责请求发送的对象, 如: axios.`);
     }
@@ -99,7 +99,6 @@ export default {
           };
 
           if (isMini) {
-            console.log(param);
             return $http({ data, ...param });
           } else {
             return $http(method === 'get' ? { params: data, ...param } : { data, ...param });
