@@ -1,6 +1,6 @@
 {
   "name": "mis",
-  "version": "1.0.3-alpha.0",
+  "version": "1.0.4-alpha.0",
   "description": "zeesuu package examples",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "lanbin1987@gmail.com",
   "license": "MIT",
   "dependencies": {
-    "@zeesuu/login": "^1.0.2",
+    "@zeesuu/login": "^1.0.4-alpha.0",
     "@zeesuu/service": "^1.0.3-alpha.0",
     "axios": "^0.21.0",
     "element-ui": "^2.13.2",
