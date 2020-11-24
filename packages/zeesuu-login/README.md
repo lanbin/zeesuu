@@ -3,7 +3,7 @@
 ## 安装:
 
 ```
-$ npm i  @zeesuu/login -S
+$ npm i @zeesuu/login -S
 ```
 
 ## 使用:
