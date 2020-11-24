@@ -2,7 +2,7 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2020-10-28 10:58:49
+ * @Last Modified time: 2020-11-24 12:11:34
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
@@ -112,8 +112,16 @@ export default {
       console.log($service);
     }
 
-    Vue.prototype.$service = $service;
-    Vue.prototype.$url = $url;
-    Vue.prototype.$http = $http;
+    const { version } = Vue;
+
+    if (version.match(/^3(.*)/)) {
+      Vue.config.globalProperties.$service = $service;
+      Vue.config.globalProperties.$url = $url;
+      Vue.config.globalProperties.$http = $http;
+    } else {
+      Vue.prototype.$service = $service;
+      Vue.prototype.$url = $url;
+      Vue.prototype.$http = $http;
+    }
   },
 };
