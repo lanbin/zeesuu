@@ -296,8 +296,8 @@ export default {
   // 密码验证
   PASSWORD_RULE: [
     {
-      // validator: process.env.PASSWORD_STRICT ? strictValidatePassword : validatePassword,
-      validator: password,
+      validator: process.env.PASSWORD_STRICT ? strictValidatePassword : validatePassword,
+      // validator: password,
       trigger: 'blur',
     },
   ],
