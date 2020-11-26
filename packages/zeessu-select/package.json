@@ -1,11 +1,9 @@
 {
-  "name": "@zeessu/select",
+  "name": "@zeesuu/select",
   "version": "1.0.0",
   "description": "Configurable select component for vue. Base on Element-ui.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/lanbin/zeesuu",
@@ -20,5 +18,6 @@
     "access": "public"
   },
   "author": "lanbin1987@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "7ae25e6a823df688fa35e09003e8ade4735e7aae"
 }
