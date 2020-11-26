@@ -4,7 +4,9 @@
   "private": "true",
   "license": "MIT",
   "scripts": {
-    "example": "cd examples/mis && npm run serve"
+    "example": "cd examples/mis && npm run serve",
+    "version": "lerna versino",
+    "pub": "lerna publish from-package"
   },
   "devDependencies": {
     "lerna": "^3.22.1"

@@ -1,0 +1,21 @@
+{
+  "name": "@zeesuu/rules",
+  "version": "1.0.0",
+  "description": "common Rules for asnyc-validate",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lanbin/zeesuu",
+    "directory": "packages/rules"
+  },
+  "keywords": [
+    "async-validate",
+    "rules"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "lanbin1987@gmail.com",
+  "license": "MIT"
+}
