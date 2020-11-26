@@ -1,11 +1,11 @@
-# mutong-ketang-searchlist
+# @zeesuu/searchlist
 
 页面级别的列表组件,包含基本的数据渲染,事件响应等.
 
 ## 安装:
 
 ```
-$ npm i mutong-ketang-searchlist@latest -S
+$ npm i  @zeesuu/searchlist@latest -S
 ```
 
 ## 使用:
@@ -15,9 +15,9 @@ $ npm i mutong-ketang-searchlist@latest -S
 在 _main.js_ 中
 
 ```javascript
-import MTSearchList from 'mutong-ketang-searchlist';
+import ZeesuuSearchList from ' @zeesuu/searchlist';
 
-Vue.use(MTSearchList);
+Vue.use(ZeesuuSearchList);
 ```
 
 页面中

@@ -1,18 +1,20 @@
 {
-  "name": "@zeesuu/searchlist",
+  "name": "zeessu-select",
   "version": "1.0.0",
-  "description": "Searchable and selectabld table component for vue. Base on Element-ui",
+  "description": "Configurable select component for vue. Base on Element-ui.",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/lanbin/zeesuu",
-    "directory": "packages/selectlist"
+    "directory": "packages/select"
   },
   "keywords": [
+    "select",
     "element-ui",
-    "table",
-    "component",
-    "cms"
+    "vue"
   ],
   "publishConfig": {
     "access": "public"
