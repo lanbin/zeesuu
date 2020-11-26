@@ -1,0 +1,17 @@
+{
+  "name": "zeesuu-searchlist",
+  "version": "1.0.0",
+  "description": "Searchable and selectabld table component for vue. Base on Element-ui",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "element-ui",
+    "table",
+    "component",
+    "cms"
+  ],
+  "author": "lanbin1987@gmail.com",
+  "license": "MIT"
+}
