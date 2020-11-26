@@ -1,0 +1,21 @@
+{
+  "name": "zeesuu-permission",
+  "version": "1.0.0",
+  "description": "Permission directive of vue",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lanbin/zeesuu",
+    "directory": "packages/permission"
+  },
+  "keywords": [
+    "permission",
+    "vue"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "lanbin1987@gmail.com",
+  "license": "MIT"
+}
