@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/permission",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Permission directive of vue",
   "main": "index.js",
   "scripts": {},

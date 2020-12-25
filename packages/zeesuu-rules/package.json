@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/rules",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "common Rules for asnyc-validate",
   "main": "index.js",
   "scripts": {},
