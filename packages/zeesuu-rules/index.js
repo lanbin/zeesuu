@@ -38,7 +38,7 @@ export const validateNumber = (rule, value, callback) => {
 };
 
 // 数字 范围范围
-export const intRange = (min = 0, max = 100) => {
+export const intRange = ({ min = 0, max = 100, message = '' }) => {
   function checkInt(rule, value, callback) {
     // 不填就不填吧,填了的需要校验,必填字段需配合COMMON_RULE
     if ((!value && value !== 0) || typeof value == 'undefined') {
@@ -49,7 +49,7 @@ export const intRange = (min = 0, max = 100) => {
     } else if (value >= min && value <= max) {
       callback();
     } else {
-      callback(new Error(`该项需填写${min}~${max}的数字`));
+      callback(new Error(message || `该项需填写${min}~${max}的数字`));
     }
   }
   return [{ validator: checkInt, trigger: 'change,blur' }];
