@@ -22,6 +22,7 @@
               :is="opt.type"
               :label="opt.label"
               :conf="opt.conf"
+              v-bind="opt.$attrs || {}"
               v-model="s_searchInfo[opt.name]"
             ></component>
           </el-col>
