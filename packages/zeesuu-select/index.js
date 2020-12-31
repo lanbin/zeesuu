@@ -45,6 +45,10 @@ export default {
             type: Object,
             default: () => {},
           },
+          valueJoiner: {
+            type: String,
+            default: ',',
+          },
         },
         template: `
                 <div class="${name}-select sc-select" >
@@ -75,7 +79,8 @@ export default {
         },
         data() {
           return {
-            selectVal: '',
+            // 多选他是个数组
+            selectVal: this.$attrs.multiple ? [] : '',
             loopData: [],
             unWatch: null,
           };
@@ -114,7 +119,9 @@ export default {
               default:
                 value = this.value.toString();
             }
-            this.selectVal = value;
+            // 如果 value长度为0进行split操作的话,会得到一个有一个空字符元素的数组
+            this.selectVal =
+              value.length > 0 && this.$attrs.multiple ? value.split(this.valueJoiner) : value;
           },
           selectHandler() {
             this.$emit(
@@ -122,6 +129,9 @@ export default {
               // 如果是boolean的字符串,则返回boolean
               ['true', 'false'].indexOf(this.selectVal) > -1
                 ? this.selectVal === 'true'
+                : // 如果是数组则返回拼接字符串,不是则返回值本身
+                Array.isArray(this.selectVal)
+                ? this.selectVal.join(this.valueJoiner)
                 : this.selectVal,
             );
           },
