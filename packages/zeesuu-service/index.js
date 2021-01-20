@@ -2,7 +2,7 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2020-12-29 15:51:26
+ * @Last Modified time: 2021-01-20 15:55:06
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
@@ -123,7 +123,8 @@ export default {
         ...(Vue.config.globalProperties.$url || {}),
         ...$url,
       };
-      Vue.config.globalProperties.$http = $http;
+
+      Vue.config.globalProperties.$http = Vue.config.globalProperties.$http || $http;
     } else {
       Vue.prototype.$service = {
         ...(Vue.prototype.$service || {}),
@@ -133,7 +134,8 @@ export default {
         ...(Vue.prototype.$url || {}),
         ...$url,
       };
-      Vue.prototype.$http = $http;
+
+      Vue.prototype.$http = Vue.prototype.$http || $http;
     }
   },
 };
