@@ -2,7 +2,7 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2021-01-20 15:55:06
+ * @Last Modified time: 2021-01-20 17:58:35
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
@@ -24,12 +24,20 @@ const ParamReg = /\((.+?)\)/g;
 export default {
   install(Vue, options) {
     const { $http, apis, appRoot = '', isMini = false } = options;
+    const { version } = Vue;
+
     if (!$http) {
       return console.error(`${PACKNAME} 缺少$http字段配置, 请指定负责请求发送的对象, 如: axios.`);
     }
 
     const $service = {};
     const $url = {};
+
+    if (version.match(/^3(.*)/)) {
+      Vue.config.globalProperties.$http = Vue.config.globalProperties.$http || $http;
+    } else {
+      Vue.prototype.$http = Vue.prototype.$http || $http;
+    }
 
     // 转成service
     if (apis) {
@@ -98,10 +106,12 @@ export default {
             ...option,
           };
 
+          const R = Vue.prototype.$http || Vue.config.globalProperties.$http;
+
           if (isMini) {
-            return $http({ data, ...param });
+            return R({ data, ...param });
           } else {
-            return $http(method === 'get' ? { params: data, ...param } : { data, ...param });
+            return R(method === 'get' ? { params: data, ...param } : { data, ...param });
           }
         };
       });
@@ -112,8 +122,6 @@ export default {
       console.log($service);
     }
 
-    const { version } = Vue;
-
     if (version.match(/^3(.*)/)) {
       Vue.config.globalProperties.$service = {
         ...(Vue.config.globalProperties.$service || {}),
@@ -123,8 +131,6 @@ export default {
         ...(Vue.config.globalProperties.$url || {}),
         ...$url,
       };
-
-      Vue.config.globalProperties.$http = Vue.config.globalProperties.$http || $http;
     } else {
       Vue.prototype.$service = {
         ...(Vue.prototype.$service || {}),
@@ -134,8 +140,6 @@ export default {
         ...(Vue.prototype.$url || {}),
         ...$url,
       };
-
-      Vue.prototype.$http = Vue.prototype.$http || $http;
     }
   },
 };
