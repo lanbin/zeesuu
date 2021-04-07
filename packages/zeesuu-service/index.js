@@ -2,7 +2,7 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2021-01-20 17:58:35
+ * @Last Modified time: 2021-04-07 16:56:20
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
@@ -106,7 +106,13 @@ export default {
             ...option,
           };
 
-          const R = Vue.prototype.$http || Vue.config.globalProperties.$http;
+          let R = null;
+
+          if (Vue.prototype && Vue.prototype.$http) {
+            R = Vue.prototype.$http;
+          } else {
+            R = Vue.config.globalProperties.$http;
+          }
 
           if (isMini) {
             return R({ data, ...param });
