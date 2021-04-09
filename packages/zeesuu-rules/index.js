@@ -296,10 +296,13 @@ export default {
   // 密码验证
   PASSWORD_RULE: [
     {
-      validator: (process || import.meta).env.PASSWORD_STRICT
-        ? strictValidatePassword
-        : validatePassword,
-      // validator: password,
+      validator: validatePassword,
+      trigger: 'blur',
+    },
+  ],
+  STRICT_PASSWORD_RULE: [
+    {
+      validator: strictValidatePassword,
       trigger: 'blur',
     },
   ],
