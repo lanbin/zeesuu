@@ -2,14 +2,14 @@
  * @Author: lanbin
  * @Date: 2020-08-25 14:31:34
  * @Last Modified by: lanbin
- * @Last Modified time: 2021-04-07 16:56:20
+ * @Last Modified time: 2021-04-26 10:04:25
  *
  *
  * 将特定格式的API配置,转成能够直接使用的Service
  * 并挂载在 Vue.prototype.$service下
  */
 
-const PACKNAME = '[mutong-ketang-service]';
+const PACKNAME = '[@zeesuu/service]';
 /**
  * 首字母大写
  */
