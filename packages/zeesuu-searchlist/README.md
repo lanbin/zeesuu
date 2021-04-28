@@ -31,9 +31,13 @@ Vue.use(ZeesuuSearchList);
       <!-- 搜索框配置(可选) -->
       :option="searchOpt"
       <!-- 搜索框每行控件数目(可选) -->
-      :itemPerRow="8"
+      :item-perow="8"
       <!-- 设置table的rowkey(可选) -->
-      :rowKey="id"
+      :row-key="id"
+      <!-- 设置table的页面起始(可选),默认:1 -->
+      :page-start="0"
+      <!-- 设置table的数据字段名称(可选),默认: rows -->
+      list-name="list"
       <!-- 设置默认翻页参数(可选) -->
       :pagination="pagination"
       <!-- 请求成功后回调(可选), 参数为返回的列表数据 -->
@@ -106,9 +110,9 @@ Vue.use(ZeesuuSearchList);
         ],
         pagination: {
           // 当前页面
-          page_no: 1,
+          page: 1,
           // 每页数量
-          page_size: 10,
+          size: 10,
           // 总页数
           total: 0,
           // 请求标志位

@@ -115,6 +115,14 @@
         type: Object,
         default: () => {},
       },
+      pageStart: {
+        type: Number,
+        default: 1,
+      },
+      listName: {
+        type: string,
+        default: 'rows',
+      },
       itemPerRow: {
         type: [Number, String],
         default: 4,
@@ -144,7 +152,7 @@
         // pagination
         s_pagination: {
           // 当前页面
-          page: 1,
+          page: this.pageStart,
           // 每页数量
           size: 10,
           // 总页数
@@ -167,10 +175,10 @@
       },
       // 改变了条数之后回到首页
       's_pagination.size': function hanmeimei() {
-        if (this.s_pagination.page == 1) {
+        if (this.s_pagination.page == this.pageStart) {
           this.getList();
         } else {
-          this.$set(this.s_pagination, 'page', 1);
+          this.$set(this.s_pagination, 'page', this.pageStart);
         }
       },
     },
@@ -202,11 +210,11 @@
             params: listQueryParams,
           })
           .then((res) => {
-            const { page, pageSize, rows, total } = res;
+            const { page, pageSize, total } = res;
             if (this.querySuccess) {
-              this.s_list = this.querySuccess(rows);
+              this.s_list = this.querySuccess(res[this.listName]);
             } else {
-              this.s_list = rows;
+              this.s_list = res[this.listName];
             }
 
             this.$set(this.s_pagination, 'total', total);
@@ -254,7 +262,7 @@
        */
       s_searchHandler(data) {
         // 回到第一页
-        this.$set(this.s_pagination, 'page', 1);
+        this.$set(this.s_pagination, 'page', this.pageStart);
         this.getList();
       },
       /**
