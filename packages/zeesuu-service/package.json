@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/service",
-  "version": "1.0.10",
+  "version": "1.0.12",
   "description": "compile API settings to service function",
   "main": "index.js",
   "repository": {
