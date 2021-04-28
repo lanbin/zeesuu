@@ -1,6 +1,6 @@
 {
   "name": "@zeesuu/searchlist",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Searchable and selectabld table component for vue. Base on Element-ui",
   "main": "index.js",
   "repository": {
