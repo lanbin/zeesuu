@@ -120,7 +120,7 @@
         default: 1,
       },
       listName: {
-        type: string,
+        type: String,
         default: 'rows',
       },
       itemPerRow: {
