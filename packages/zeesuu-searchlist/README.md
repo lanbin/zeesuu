@@ -31,11 +31,11 @@ Vue.use(ZeesuuSearchList);
       <!-- 搜索框配置(可选) -->
       :option="searchOpt"
       <!-- 搜索框每行控件数目(可选) -->
-      :item-perow="8"
+      :item-per-row="8"
       <!-- 设置table的rowkey(可选) -->
       :row-key="id"
-      <!-- 设置table的页面起始(可选),默认:1 -->
-      :page-start="0"
+      <!-- 设置table的页面偏移(可选),默认:0,用于起始页是0或者其他的情况 -->
+      :page-offset="0"
       <!-- 设置table的数据字段名称(可选),默认: rows -->
       list-name="list"
       <!-- 设置默认翻页参数(可选) -->
@@ -48,6 +48,8 @@ Vue.use(ZeesuuSearchList);
       @selection-change="selectionChange"
       <!-- 双击一行数据响应(可选) -->
       @table-row-dbclick="dbClicked"
+      <!-- 是否立即请求数据(可选) -->
+      :fetch-now="false"
     >
       <!-- 如果要多选,可以第一个列表现增加单选框(可选) -->
       <el-table-column type="selection"></el-table-column>

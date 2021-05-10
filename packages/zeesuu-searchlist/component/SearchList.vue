@@ -5,16 +5,9 @@
       <!-- 配置的组件 -->
       <div class="search-input-box">
         <!-- 自动分行 -->
-        <el-row
-          v-for="index in Math.ceil(s_localOption.length / itemPerRow)"
-          :key="index"
-          :gutter="20"
-        >
+        <el-row :gutter="20">
           <el-col
-            v-for="(opt, index) in s_localOption.slice(
-              (index - 1) * itemPerRow,
-              index * itemPerRow,
-            )"
+            v-for="(opt, index) in s_localOption"
             :key="index"
             :span="24 / (opt.col || itemPerRow)"
           >
@@ -81,7 +74,7 @@
       @current-change="s_pageChange"
       @size-change="s_sizeChange"
       :page-sizes="[10, 50, 100]"
-      :current-page="~~s_pagination.page"
+      :current-page="~~s_pagination.page + pageOffset"
       :page-size="s_pagination.size"
       :total="s_pagination.total"
     ></el-pagination>
@@ -107,6 +100,10 @@
         type: String,
         default: 'id',
       },
+      fetchNow: {
+        type: Boolean,
+        default: true,
+      },
       option: {
         type: Array,
         default: () => [],
@@ -115,9 +112,9 @@
         type: Object,
         default: () => {},
       },
-      pageStart: {
+      pageOffset: {
         type: Number,
-        default: 1,
+        default: 0,
       },
       listName: {
         type: String,
@@ -152,7 +149,7 @@
         // pagination
         s_pagination: {
           // 当前页面
-          page: this.pageStart,
+          page: 1 - this.pageOffset,
           // 每页数量
           size: 10,
           // 总页数
@@ -161,8 +158,12 @@
           loading: false,
           ...this.pagination,
         },
-        s_paginationGetImmediately: true, // mounted时就立马获取数据
       };
+    },
+    computed: {
+      firstPage() {
+        return 1 - this.pageOffset;
+      },
     },
     watch: {
       option() {
@@ -175,16 +176,16 @@
       },
       // 改变了条数之后回到首页
       's_pagination.size': function hanmeimei() {
-        if (this.s_pagination.page == this.pageStart) {
+        if (this.s_pagination.page == this.firstPage) {
           this.getList();
         } else {
-          this.$set(this.s_pagination, 'page', this.pageStart);
+          this.$set(this.s_pagination, 'page', this.firstPage);
         }
       },
     },
     mounted() {
       this.s_initSearch();
-      if (this.s_paginationGetImmediately && this.getList) {
+      if (this.fetchNow && this.getList) {
         this.getList();
       }
     },
@@ -262,15 +263,16 @@
        */
       s_searchHandler(data) {
         // 回到第一页
-        this.$set(this.s_pagination, 'page', this.pageStart);
+        this.$set(this.s_pagination, 'page', this.firstPage);
         this.getList();
       },
       /**
        * 翻页调整
        */
       s_pageChange(val) {
-        this.$emit('page-change', val);
-        this.$set(this.s_pagination, 'page', val);
+        const targetPage = val - this.pageOffset;
+        this.$emit('page-change', targetPage);
+        this.$set(this.s_pagination, 'page', targetPage);
       },
       s_sizeChange(val) {
         this.$emit('size-change', val);

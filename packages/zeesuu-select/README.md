@@ -30,6 +30,8 @@ Vue.use(ZeesuuSelect, {
       label: 'name',
       // 对应值的接口返回数据字段
       value: 'id',
+      // 返回体中,结果所在的key值(可选,默认就是返回体本身)
+      key: 'rows',
     },
     // 自定义数据集
     custom: {

@@ -28,8 +28,10 @@ export default {
        * 关键字搜索
        */
       $selectFormat[name] = (value, key = 'value') => {
-        return (Array.isArray(selectData[name]) ? selectData[name] : []).find(
-          (item) => item[key] == value,
+        return (
+          (Array.isArray(selectData[name]) ? selectData[name] : []).find(
+            (item) => item[key] == value,
+          ) || {}
         );
       };
 
@@ -93,7 +95,7 @@ export default {
             let data = selectData[name];
             if (!Array.isArray(data)) {
               await this.$http.get(data.url, this.conf ? this.conf.params : {}).then((res) => {
-                this.loopData = res.map((result) => {
+                this.loopData = (data.key ? res[data.key] : res).map((result) => {
                   return {
                     label: result[data.label || 'label'],
                     value: result[data.value || 'value'],
@@ -109,6 +111,14 @@ export default {
           },
           setDefaultValue() {
             let value = '';
+
+            // 默认走序号
+            if (this.conf && typeof this.conf.setDefaultIndex !== 'undefined') {
+              this.selectVal = this.loopData[this.conf.setDefaultIndex].value.toString();
+              this.selectHandler();
+              delete this.conf.setDefaultIndex;
+              return;
+            }
 
             switch (typeof this.value) {
               // 如果传进来的值是boolean, 转成字符串
@@ -143,5 +153,6 @@ export default {
     });
 
     Vue.prototype.$selectFormat = $selectFormat;
+    Vue.prototype.$selectData = selectData;
   },
 };
