@@ -225,7 +225,7 @@ export const totpCode = (rule, value, callback) => {
 /**
  * 通用的触发事件
  */
-const RULE_TRIGGER = 'blur';
+const RULE_TRIGGER = ['blur', 'change'];
 
 export default {
   // 通用验证条件

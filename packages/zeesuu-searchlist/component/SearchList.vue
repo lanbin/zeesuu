@@ -70,7 +70,7 @@
 
     <!-- 翻页 总数不等于当前页面的数据长度 -->
     <el-pagination
-      layout="total, sizes, prev, pager, next, jumper"
+      :layout="s_pagination.layout"
       @current-change="s_pageChange"
       @size-change="s_sizeChange"
       :page-sizes="[10, 50, 100]"
@@ -156,6 +156,8 @@
           total: 0,
           // 请求标志位
           loading: false,
+          // 格式
+          layout: 'total, sizes, prev, pager, next, jumper',
           ...this.pagination,
         },
       };
