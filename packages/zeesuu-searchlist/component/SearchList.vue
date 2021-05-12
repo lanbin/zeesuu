@@ -15,6 +15,7 @@
               :is="opt.type"
               :label="opt.label"
               :conf="opt.conf"
+              @keyup.native.enter="s_fetchData"
               v-bind="opt.$attrs || {}"
               v-model="s_searchInfo[opt.name]"
             ></component>
@@ -39,7 +40,7 @@
         >
           查询
         </el-button>
-        <el-button @click="s_resetSearchInfo" size="mini" v-if="s_localOption.length > 0">
+        <el-button @click="s_resetSearchInfo" size="mini" v-if="s_localOption.length > 1">
           清空
         </el-button>
         <slot
@@ -193,9 +194,14 @@
     },
     methods: {
       getList() {
-        this.beforeQuery({
-          searchInfo: this.s_searchInfo,
-        });
+        // 如果beforeQuery返回true, 则断了请求
+        if (
+          this.beforeQuery({
+            searchInfo: this.s_searchInfo,
+          })
+        ) {
+          return;
+        }
 
         if (!this.apiUrl) return;
 
