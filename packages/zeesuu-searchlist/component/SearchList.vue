@@ -78,6 +78,7 @@
       :current-page="~~s_pagination.page + pageOffset"
       :page-size="s_pagination.size"
       :total="s_pagination.total"
+      v-bind="s_pagination"
     ></el-pagination>
   </div>
 </template>
