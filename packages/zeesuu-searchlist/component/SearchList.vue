@@ -258,6 +258,7 @@
        * 重置搜索条件
        */
       s_resetSearchInfo() {
+        this.$emit('reset', this.s_searchInfo);
         this.s_searchInfo = { ...this.s_initSearchInfo };
       },
       /**
