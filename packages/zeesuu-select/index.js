@@ -99,14 +99,15 @@ export default {
                   return {
                     label: result[data.label || 'label'],
                     value: result[data.value || 'value'],
+                    ...result,
                   };
                 });
               });
             } else {
               this.loopData = data;
             }
-            // TODO: 把结果还是赋值给他, 但是这里呢可能还是要提早准备一下
-            selectData[name] = [...this.loopData];
+            Vue.prototype.$selectData[name] = [...this.loopData];
+
             this.setDefaultValue();
           },
           setDefaultValue() {

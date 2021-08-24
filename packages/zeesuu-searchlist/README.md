@@ -28,6 +28,13 @@ Vue.use(ZeesuuSearchList);
     <search-list
       <!-- 列表请求地址(必选) -->
       :api-url="API.SUB_PLATFORM.LIST"
+      <!-- 是否展示清空按钮(可选), 如果为true,当option长度为0时也不会展示 -->
+      :show-reset-btn="true"
+      <!-- 是否在reset后立马重新搜索(可选) -->
+      :fetch-after-reset="false"
+      <!-- 按钮文本(可选) -->
+      :reset-btn-text="清空"
+      :query-btn-text="清空"
       <!-- 搜索框配置(可选) -->
       :option="searchOpt"
       <!-- 搜索框每行控件数目(可选) -->

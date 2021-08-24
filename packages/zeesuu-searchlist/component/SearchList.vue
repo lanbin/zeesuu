@@ -38,10 +38,14 @@
           v-if="s_localOption.length > 0"
           icon="el-icon-search"
         >
-          查询
+          {{ queryBtnText }}
         </el-button>
-        <el-button @click="s_resetSearchInfo" size="mini" v-if="s_localOption.length > 1">
-          清空
+        <el-button
+          @click="s_resetSearchInfo"
+          size="mini"
+          v-if="showResetBtn && s_localOption.length > 0"
+        >
+          {{ resetBtnText }}
         </el-button>
         <slot
           name="btn-after"
@@ -97,6 +101,22 @@
         type: String,
         default: '',
         required: true,
+      },
+      showResetBtn: {
+        type: Boolean,
+        default: true,
+      },
+      fetchAfterReset: {
+        type: Boolean,
+        default: false,
+      },
+      resetBtnText: {
+        type: String,
+        default: '清空',
+      },
+      queryBtnText: {
+        type: String,
+        default: '查询',
       },
       rowKey: {
         type: String,
@@ -260,6 +280,10 @@
       s_resetSearchInfo() {
         this.$emit('reset', this.s_searchInfo);
         this.s_searchInfo = { ...this.s_initSearchInfo };
+
+        if (this.fetchAfterReset) {
+          this.s_fetchData();
+        }
       },
       /**
        * 搜索事件
