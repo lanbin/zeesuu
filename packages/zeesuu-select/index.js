@@ -94,7 +94,9 @@ export default {
           async setData() {
             let data = selectData[name];
             if (!Array.isArray(data)) {
-              await this.$http.get(data.url, this.conf ? this.conf.params : {}).then((res) => {
+              const { params } = this.conf;
+
+              await this.$http.get(data.url, this.conf ? { params } : {}).then((res) => {
                 this.loopData = (data.key ? res[data.key] : res).map((result) => {
                   return {
                     label: result[data.label || 'label'],
