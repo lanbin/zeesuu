@@ -94,17 +94,17 @@ export default {
           async setData() {
             let data = selectData[name];
             if (!Array.isArray(data)) {
-              const { params } = this.conf;
-
-              await this.$http.get(data.url, this.conf ? { params } : {}).then((res) => {
-                this.loopData = (data.key ? res[data.key] : res).map((result) => {
-                  return {
-                    label: result[data.label || 'label'],
-                    value: result[data.value || 'value'],
-                    ...result,
-                  };
+              await this.$http
+                .get(data.url, this.conf ? { params: this.conf.params } : {})
+                .then((res) => {
+                  this.loopData = (data.key ? res[data.key] : res).map((result) => {
+                    return {
+                      label: result[data.label || 'label'],
+                      value: result[data.value || 'value'],
+                      ...result,
+                    };
+                  });
                 });
-              });
             } else {
               this.loopData = data;
             }
